@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member & Payment App – Sign In / Sign Up</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="logo">🗂️</div>
+      <h1>Member & Payment Dashboard</h1>
+      <p class="muted">Manage members and payments easily</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button id="showSignIn" class="tab active">Sign In</button>
+      <button id="showSignUp" class="tab">Sign Up</button>
+    </div>
+
+    <!-- Sign In Form -->
+    <form id="signInForm" class="form">
+      <div class="form-row">
+        <label for="si-username">Username</label>
+        <input id="si-username" type="text" placeholder="Enter your username" required />
+      </div>
+      <div class="form-row">
+        <label for="si-email">Email</label>
+        <input id="si-email" type="email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-row">
+        <label for="si-password">Password</label>
+        <input id="si-password" type="password" placeholder="••••••••" required minlength="6" />
+      </div>
+      <div class="form-row inline">
+        <label class="checkbox">
+          <input id="si-remember" type="checkbox" />
+          <span>Remember Me (required to log in)</span>
+        </label>
+      </div>
+      <div id="si-error" class="error"></div>
+      <button type="submit" class="btn primary">Sign In</button>
+      <p class="switch">
+        Don't have an account?
+        <a href="#" id="toSignUp">Create one</a>
+      </p>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signUpForm" class="form hidden">
+      <div class="form-row">
+        <label for="su-username">Username</label>
+        <input id="su-username" type="text" placeholder="Choose a username" required minlength="3" />
+      </div>
+      <div class="form-row">
+        <label for="su-email">Email</label>
+        <input id="su-email" type="email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-row">
+        <label for="su-password">Password</label>
+        <input id="su-password" type="password" placeholder="Min 6 characters" required minlength="6" />
+      </div>
+      <div class="form-row">
+        <label for="su-confirm">Confirm Password</label>
+        <input id="su-confirm" type="password" placeholder="Retype password" required minlength="6" />
+      </div>
+      <div class="form-row inline">
+        <label class="checkbox">
+          <input id="su-terms" type="checkbox" />
+          <span>I agree to the <a href="#" onclick="alert('Sample Terms & Conditions.');return false;">Terms & Conditions</a></span>
+        </label>
+      </div>
+      <div id="su-error" class="error"></div>
+      <button type="submit" class="btn primary">Create Account</button>
+      <p class="switch">
+        Already have an account?
+        <a href="#" id="toSignIn">Sign In</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

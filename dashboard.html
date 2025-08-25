@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member & Payment Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="app-page">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">🗂️</div>
+      <div class="app-title">Dashboard</div>
+    </div>
+    <nav class="menu">
+      <button class="menu-item active" data-view="dashboard">🏠 Dashboard</button>
+      <button class="menu-item" data-view="members">👥 Members</button>
+      <button class="menu-item" data-view="payments">💳 Payments</button>
+    </nav>
+    <div class="sidebar-footer">
+      <label class="switch-row">
+        <span>🌙 Dark Mode</span>
+        <input id="toggleTheme" type="checkbox"/>
+      </label>
+      <button id="logoutBtn" class="btn danger outline">Logout</button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <!-- Topbar -->
+    <header class="topbar">
+      <h2 id="greeting">Welcome!</h2>
+    </header>
+
+    <!-- Dashboard view -->
+    <section id="view-dashboard" class="view show">
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">Total Members</div>
+          <div id="stat-members" class="card-value">0</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Total Payments</div>
+          <div id="stat-payments" class="card-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Members view -->
+    <section id="view-members" class="view">
+      <div class="toolbar">
+        <div class="group">
+          <input id="memberSearch" type="text" placeholder="Search members by name or description"/>
+          <select id="memberSort">
+            <option value="name-asc">Sort by Name (A→Z)</option>
+            <option value="name-desc">Sort by Name (Z→A)</option>
+            <option value="dob-asc">Sort by Date of Birth (Oldest→Newest)</option>
+            <option value="dob-desc">Sort by Date of Birth (Newest→Oldest)</option>
+          </select>
+        </div>
+        <button id="addMemberBtn" class="btn primary">+ Add Member</button>
+      </div>
+
+      <div id="membersList" class="list"></div>
+    </section>
+
+    <!-- Payments view -->
+    <section id="view-payments" class="view">
+      <div class="toolbar">
+        <div class="group">
+          <input id="paymentSearch" type="text" placeholder="Search payments by name or description"/>
+          <select id="paymentSort">
+            <option value="name-asc">Sort by Name (A→Z)</option>
+            <option value="name-desc">Sort by Name (Z→A)</option>
+            <option value="date-asc">Sort by Date (Oldest→Newest)</option>
+            <option value="date-desc">Sort by Date (Newest→Oldest)</option>
+            <option value="description">Sort by Description</option>
+            <option value="amount-asc">Sort by Amount (Low→High)</option>
+            <option value="amount-desc">Sort by Amount (High→Low)</option>
+          </select>
+        </div>
+        <button id="addPaymentBtn" class="btn primary">+ Add Payment</button>
+      </div>
+
+      <div id="paymentsList" class="list"></div>
+    </section>
+  </main>
+
+  <!-- Member Modal -->
+  <div id="memberModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="memberModalTitle">Add Member</h3>
+      <form id="memberForm" class="form">
+        <input type="hidden" id="memberIndex" />
+        <div class="form-row">
+          <label for="m-name">Name</label>
+          <input id="m-name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="m-dob">Date of Birth</label>
+          <input id="m-dob" type="date" required />
+        </div>
+        <div class="form-row">
+          <label for="m-desc">Description</label>
+          <textarea id="m-desc" rows="3" placeholder="Short description" required></textarea>
+        </div>
+        <div id="memberError" class="error"></div>
+        <div class="actions">
+          <button type="button" class="btn ghost" id="closeMemberModal">Cancel</button>
+          <button type="submit" class="btn primary" id="saveMemberBtn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="paymentModalTitle">Add Payment</h3>
+      <form id="paymentForm" class="form">
+        <input type="hidden" id="paymentIndex" />
+        <div class="form-row">
+          <label for="p-name">Name</label>
+          <input id="p-name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="p-amount">Amount</label>
+          <input id="p-amount" type="number" step="0.01" min="0" required />
+        </div>
+        <div class="form-row">
+          <label for="p-method">Payment Method</label>
+          <select id="p-method" required>
+            <option value="">Select method</option>
+            <option value="Credit Card">💳 Credit Card</option>
+            <option value="Bank Transfer">🏦 Bank Transfer</option>
+            <option value="Mobile Money">📱 Mobile Money</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="p-desc">Description</label>
+          <textarea id="p-desc" rows="3" placeholder="Short description"></textarea>
+        </div>
+        <div id="paymentError" class="error"></div>
+        <div class="actions">
+          <button type="button" class="btn ghost" id="closePaymentModal">Cancel</button>
+          <button type="submit" class="btn primary" id="savePaymentBtn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
