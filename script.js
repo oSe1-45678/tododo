@@ -57,8 +57,8 @@ function sanitize(str) {
   };
   showSignInBtn?.addEventListener('click', showSignIn);
   showSignUpBtn?.addEventListener('click', showSignUp);
-  toSignUp?.addEventListener('click', (e)=>{ e.preventDefault(); showSignUp(); });
-  toSignIn?.addEventListener('click', (e)=>{ e.preventDefault(); showSignIn(); });
+  toSignUp?.addEventListener('click', (e) => { e.preventDefault(); showSignUp(); });
+  toSignIn?.addEventListener('click', (e) => { e.preventDefault(); showSignIn(); });
 
   // Sign Up handler
   signUpForm?.addEventListener('submit', (e) => {
@@ -263,7 +263,7 @@ function sanitize(str) {
     const q = sanitize(memberSearch.value).toLowerCase();
     const [key, dir] = memberSort.value.split('-'); // name / asc|desc
     let data = members.filter(m => m.name.toLowerCase().includes(q) || m.description.toLowerCase().includes(q));
-    data.sort((a,b) => {
+    data.sort((a, b) => {
       const v = a.name.localeCompare(b.name);
       return dir === 'asc' ? v : -v;
     });
@@ -387,7 +387,7 @@ function sanitize(str) {
     const q = sanitize(paymentSearch.value).toLowerCase();
     const [key, dir] = paymentSort.value.split('-'); // name/amount, asc/desc
     let data = payments.filter(p => p.name.toLowerCase().includes(q) || (p.description || '').toLowerCase().includes(q));
-    data.sort((a,b) => {
+    data.sort((a, b) => {
       if (key === 'name') {
         const v = a.name.localeCompare(b.name);
         return dir === 'asc' ? v : -v;
@@ -407,7 +407,7 @@ function sanitize(str) {
           <div class="meta">
             <div class="title">${methodIcon(p.method)} ${p.name}</div>
             <div class="desc">${p.description || ''}</div>
-            <div class="desc">Amount: ${Number(p.amount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} — Method: ${p.method}</div>
+            <div class="desc">Amount: ${Number(p.amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} — Method: ${p.method}</div>
           </div>
           <div class="actions">
             <button class="btn ghost" data-action="edit-payment" data-index="${realIndex}">✏️ Edit</button>

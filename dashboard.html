@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Member & Payment Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="app-page">
   <aside class="sidebar">
     <div class="sidebar-header">
@@ -20,7 +22,7 @@
     <div class="sidebar-footer">
       <label class="switch-row">
         <span>🌙 Dark Mode</span>
-        <input id="toggleTheme" type="checkbox"/>
+        <input id="toggleTheme" type="checkbox" />
       </label>
       <button id="logoutBtn" class="btn danger outline">Logout</button>
     </div>
@@ -50,7 +52,7 @@
     <section id="view-members" class="view">
       <div class="toolbar">
         <div class="group">
-          <input id="memberSearch" type="text" placeholder="Search members by name or description"/>
+          <input id="memberSearch" type="text" placeholder="Search members by name or description" />
           <select id="memberSort">
             <option value="name-asc">Sort by Name (A→Z)</option>
             <option value="name-desc">Sort by Name (Z→A)</option>
@@ -68,7 +70,7 @@
     <section id="view-payments" class="view">
       <div class="toolbar">
         <div class="group">
-          <input id="paymentSearch" type="text" placeholder="Search payments by name or description"/>
+          <input id="paymentSearch" type="text" placeholder="Search payments by name or description" />
           <select id="paymentSort">
             <option value="name-asc">Sort by Name (A→Z)</option>
             <option value="name-desc">Sort by Name (Z→A)</option>
@@ -151,4 +153,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
