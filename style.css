@@ -14,7 +14,7 @@
 
 /* Make text clearer in light mode */
 :root[data-theme="light"] {
-  --bg: #f8fafc;
+  --bg: #2c5883;
   --surface: #ffffff;
   --border: #e5e7eb;
   --text: #222a3a;
@@ -43,7 +43,19 @@
   color: #222a3a;
 }
 
-:root[data-theme="light"] .item .title,
+/* Make select and options text black in light mode for clarity */
+:root[data-theme="light"] .toolbar select,
+:root[data-theme="light"] .toolbar option {
+  color: #222a3a !important;
+  background: #f3f6fa !important;
+}
+
+/* Make amount digits and select method text black in light mode */
+:root[data-theme="light"] .item .desc,
+:root[data-theme="light"] .item .title {
+  color: #222a3a !important;
+}
+
 :root[data-theme="light"] .item .desc,
 :root[data-theme="light"] .card-value,
 :root[data-theme="light"] .card-title,
